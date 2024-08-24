@@ -1,0 +1,135 @@
+pre {
+    height: 290px;
+    overflow: auto;
+    font-size: 14px;
+    text-align: left;
+    font-weight: 300;
+    background-image: linear-gradient(white, whitesmoke);
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+p {
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+    outline: none;
+}
+
+.active {
+    background-color: whitesmoke;
+    outline: none;
+    font-weight: bold;
+}
+
+.api-landing-page-container {
+    display: flex;
+    max-height: 800px;
+}
+
+.api-left-child-container {
+    width: 260px;
+    resize: horizontal;
+    border: 1px solid rgb(146, 145, 145);
+}
+
+.api-right-child-container {
+    width: 900px;
+    border: 1px solid rgb(146, 145, 145);
+}
+
+.api-details-container {
+    width: 100%;
+    display: flex;
+    gap: 2px;
+}
+
+.placeholder-container {
+    width: 100%;
+}
+
+.body-headers-container {
+    margin-top: 1px;
+    margin-bottom: 1px solid grey;
+    margin-top: 1px solid grey;
+}
+
+.folder-container {
+    display: inline-block;
+}
+
+.response-container {
+    width: 100%;
+}
+
+.buttons-body {
+    outline: none;
+    opacity: 0.8;
+    background-color: #292929;
+    color: white;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9;
+}
+
+.buttons-body:hover {
+    background-color: bisque;
+    color: black;
+}
+
+#search-btn {
+    margin-left: 8px;
+    width: 70px;
+    height: 28px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: black;
+}
+
+#search-btn:hover {
+    background-color: rgb(139, 136, 136);
+}
+
+#body-btn,
+#headers-btn,
+#notes-btn {
+    width: 65px;
+    height: 26px;
+    outline: none;
+}
+
+#search-area {
+    height: 28px;
+    width: 600px;
+    color: white;
+    background-color: black;
+    outline: none;
+    border: none;
+}
+
+#select-http {
+    width: 86px;
+    height: 28px;
+    border-radius: 2px;
+    background-color: black;
+    color: white;
+}
+
+#http-status {
+    text-align: left;
+    padding-left: 5px;
+}
+
+#editor-response {
+    border: 1px solid grey;
+}

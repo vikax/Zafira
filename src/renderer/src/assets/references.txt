@@ -1,0 +1,16 @@
+https://dev.to/mandiwise/electron-apps-made-easy-with-create-react-app-and-electron-forge-560e
+
+https://dev.to/arindam1997007/a-step-by-step-guide-to-integrating-better-sqlite3-with-electron-js-app-using-create-react-app-3k16
+
+https://www.npmjs.com/package/@quick-start/create-electron
+
+https://stackoverflow.com/questions/31211359/refused-to-load-the-script-because-it-violates-the-following-content-security-po
+
+https://stackoverflow.com/questions/54695310/getting-refused-to-create-worker-from-blob-error-in-video-min-js-when-looking
+
+https://blog.logrocket.com/build-web-editor-with-react-monaco-editor/
+
+
+plugins installed:
+- npm install jquery
+- npm i codemirror, @codemirrore/lang-json, @monaco-editor/react, @codemirror/lang-javascript, @codemirror/view,mongodb-language-model

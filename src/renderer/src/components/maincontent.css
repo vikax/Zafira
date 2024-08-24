@@ -1,0 +1,32 @@
+* {
+    color: white;
+}
+
+.maincontentcontainer {
+    width: 100vw;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    padding: 20px;
+    background-color: #292929;
+}
+
+.activated {
+    font-weight: bolder;
+    background-color: rgb(160, 101, 101);
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+}
+
+.flex-main-parent {
+    width: 800px;
+    display: flex;
+    gap: 20px;
+
+}

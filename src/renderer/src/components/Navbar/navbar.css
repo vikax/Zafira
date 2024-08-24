@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Source Code Pro", monospace;
+}
+
+.navbarcontainer {
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-left: 15px;
+    background-color: #44aa6d;
+    color: black;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+
+}
+
+nav ul li {
+    list-style: none;
+}
+
+.li-search-btn {
+    margin-top: 3px;
+}
+
+.search-btn {
+    font-family: "New Amsterdam";
+    color: black;
+}
+
+li.nav-top-items:hover {
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+li.navItemsVisited {
+    background-color: bisque;
+    font-weight: bolder;
+}
+
+#search-item-li {
+    width: 300px;
+    height: 25px;
+    border: 1px solid green;
+    color: black;
+    padding-left: 5px;
+}
+
+.right-menu,
+.left-menu {
+    width: 200px;
+}

@@ -1,0 +1,34 @@
+.sidebarcontainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 12vh;
+    width: 100vw;
+    background-color: rgb(30, 29, 29);
+    overflow: auto;
+    z-index: 2;
+    position: fixed;
+    color: white;
+    font-family: "Karla";
+}
+
+.sidebar-ul {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.sidebar-li-items {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.sidebar-li-items:hover {
+    cursor: pointer;
+    font-weight: bolder;
+}

@@ -1,0 +1,30 @@
+.footer-container {
+    width: 100vw;
+    height: 60px;
+    position: absolute;
+    top: 860px;
+    left: 0px;
+    background-color: rgb(30, 29, 29);
+    color: white;
+    padding-left: 5px;
+}
+
+p#popup-intro {
+    margin-top: 8px;
+    font-size: 1em;
+}
+
+#popup-input {
+    margin: 12px;
+    font-size: 0.9em;
+}
+
+#popup-rename-btn {
+    margin-right: 12px;
+}
+
+p {
+    font-weight: bolder;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}

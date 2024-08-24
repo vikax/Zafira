@@ -1,0 +1,22 @@
+textarea {
+    margin-top: 1px;
+    resize: none;
+    border: 1px solid grey;
+    padding-top: 10px;
+    background-image: linear-gradient(white, whitesmoke);
+    border-radius: 2px;
+    padding-left: 3px;
+}
+
+.monaco-editor-container {
+    border: none;
+    border-radius: 0px;
+}
+
+.request-body-mon {
+    border: 1px solid grey;
+}
+
+#http-body-area {
+    overflow: auto;
+}
