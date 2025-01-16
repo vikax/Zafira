@@ -7,12 +7,17 @@ import FooterContent from './Components/Footer/FooterContent.jsx'
 
 console.log('Page loading started')
 
+
+
+
 createRoot(document.getElementById("root")).render(
   <>
     <Sidebar />
     <MainContent />
-    <FooterContent />
   </>
 )
+
+//console.log('almost')
+//window.elec.sayHello("Hello")
 
 console.log('Page loading finished')

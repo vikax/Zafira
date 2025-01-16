@@ -13,7 +13,7 @@ export default function MainContent() {
         <main className="maincontentcontainer">
             <div id="title-main" className="main-title">API Client</div>
             <div id="main-content-page-selection" className="main-content-landing-page-container">
-                <ApiClientPage />
+                <DatabaseClient />
             </div>
         </main>
     )

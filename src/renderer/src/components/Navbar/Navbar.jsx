@@ -1,5 +1,4 @@
 
-import { landingPage } from '../MainContent.jsx'
 import './navbar.css'
 import $ from 'jquery'
 

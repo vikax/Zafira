@@ -26,6 +26,7 @@
     "@monaco-editor/react": "^4.6.0",
     "codemirror": "^6.0.1",
     "jquery": "^3.7.1",
+    "lowdb": "^1.0.0",
     "mongodb-language-model": "^2.3.0"
   },
   "devDependencies": {

@@ -11,6 +11,16 @@ https://stackoverflow.com/questions/54695310/getting-refused-to-create-worker-fr
 https://blog.logrocket.com/build-web-editor-with-react-monaco-editor/
 
 
+https://www.debugandrelease.com/the-ultimate-electron-guide/
+
+https://blog.bitsrc.io/top-5-embedded-databases-for-javascript-applications-1c68496aebac
+
+
 plugins installed:
 - npm install jquery
 - npm i codemirror, @codemirrore/lang-json, @monaco-editor/react, @codemirror/lang-javascript, @codemirror/view,mongodb-language-model
+
+
+
+Issues
+- monaco editor was not setting value: use useRef hook with setvalue function. it took 2-3 hours to find this

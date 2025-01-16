@@ -1,4 +1,4 @@
-import { hello } from '../MainContent'
+import { hello } from '../MainContent.jsx'
 import './sidebar.css'
 
 
@@ -16,7 +16,7 @@ function Sidebar() {
             <ul className="sidebar-ul">
                 {
                     sideBarElements.map((item) =>
-                        <li className="sidebar-li-items" onClick={hello}>{item}</li>)
+                        <li key={item} className="sidebar-li-items" onClick={hello}>{item}</li>)
                 }
             </ul>
         </div>

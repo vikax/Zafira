@@ -5,8 +5,6 @@ import { getTableValues } from './RequestHeader'
 import { getBody } from './RequestBody'
 import './apiclient.css'
 import $ from 'jquery'
-import { accepts } from 'mongodb-language-model'
-import assert from 'assert'
 import { useEffect, useRef, useState } from 'react'
 import { Editor } from '@monaco-editor/react'
 import FolderHierarchy from './FolderHierarchy'
@@ -41,7 +39,7 @@ function ApiClientPage() {
 
     var httpMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH']
 
-    const [resp, setResp] = useState("{'id': 'uniqueId'}")
+    const [resp, setResp] = useState("")
     editorRef = useRef(null);
 
     var cachedResponse = localStorage.getItem('httpresponse')
@@ -86,7 +84,7 @@ function ApiClientPage() {
                     <p>Response</p>
                     <p id="http-status"></p>
                     <div id='editor-response'>
-                        <Editor id="monaco-response" theme="vs-dark" height="48vh" options={options} defaultLanguage='json' onMount={editorDidMount} value={resp}></Editor>
+                        <Editor id="monaco-response" theme="vs-dark" height="48vh" options={options} defaultLanguage='json' onMount={editorDidMount} value={cachedResponse}></Editor>
                     </div>
                 </div>
             </div>
@@ -165,6 +163,9 @@ async function sendrequest() {
         }
 
         //console.log("url is: " + url)
+
+        const respppp = await window.elec.sendRequest(url)
+        return
 
         const resp = await fetch(url, headers)
 

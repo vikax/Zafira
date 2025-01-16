@@ -1,9 +1,74 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+const { FileSync } = require('lowdb/adapters/FileSync')
+const { low } = require('lowdb')
 
-function createWindow() {
+async function openFile() {
+  const { canceled, filePaths } = await dialog.showOpenDialog()
+  if (!canceled) {
+  return filePaths[0]
+  }
+}
+
+
+async function sendRequest(url){
+  console.log(url)
+  const resp = await fetch(url)
+  const respJson = await resp.json()
+  console.log(respJson)
+}
+
+async function getDatabases() {
+    console.log('calling db inside main')
+
+    var url = 'http://127.0.0.1:3000/databases'
+
+    var resp = await fetch(url)
+    const respJson = await resp.json()
+
+    //console.log(respJson.databases)
+
+    var list = []
+    if (respJson.databases) {
+        respJson.databases.forEach(item => {
+            list.push(item.name)
+        })
+    }
+
+    console.log(list)
+
+    return list
+}
+
+async function createWindow() {
+  try {
+    const adapter =  new FileSync('db.json')
+    const db = low(adapter)
+
+    db.defaults({requestFiles: []}).write()
+
+
+    const rFile =
+    {
+      'id': 1,
+      'method': 'get',
+      'fileName': 'imageUpload'
+    }
+    db.get('requestFiles').push(rFile).write()
+
+    const rfiless = db.get('requestFiles')
+    console.log(rfiless)
+  } catch (error) {
+    console.log(error)
+  }
+  console.log('loggin index html')
+  console.log(join(__dirname, '../renderer/index.html'))
+  //console.log(process.env)
+  console.log(process.env['ELECTRON_RENDERER_URL'])
+  console.log(join(__dirname, '../preload/index.js'))
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,
@@ -12,9 +77,9 @@ function createWindow() {
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
-      sandbox: true,
-      contextIsolation:true
+      contextIsolation: true,
+      sandbox: false,
+      preload: join(__dirname, '../preload/index.js')
     }
   })
 
@@ -51,7 +116,21 @@ app.whenReady().then(() => {
   })
 
   // IPC test
-  ipcMain.on('ping', () => console.log('pong'))
+  //ipcMain.on('ping', () => console.log('pong'))
+
+  ipcMain.on('sayhello', (event, message) => {
+    console.log(message)
+  })
+
+  ipcMain.handle('dialog:openFile', openFile)
+
+  ipcMain.handle('sendRequest', (event, url) => {
+    sendRequest(url)
+  })
+
+  ipcMain.handle('getDatabases', async() => {
+    getDatabases()
+  })
 
   createWindow()
 

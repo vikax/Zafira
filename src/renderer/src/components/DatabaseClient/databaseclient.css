@@ -1,0 +1,78 @@
+.database-container {
+    width: 100vw;
+    height: 78vh;
+    background-color: #292929;
+}
+
+.database-box-parent {
+    margin: 0em;
+    border: 1px solid yellow;
+    height: 100%;
+    width: 96%;
+    display: flex;
+}
+
+.config-item {
+    font-size: large;
+}
+
+.db-select-span {
+    font-weight: bold;
+}
+
+.select-schema {
+    width: 120px;
+    height: 40px;
+    font-size: 1em;
+}
+
+.connection-configs {
+    background-color: rgb(62, 57, 57);
+    height: 60%;
+    width: 50%;
+    position: absolute;
+    left: 19em;
+    top: 4em;
+    padding: 10px;
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    display: none;
+}
+
+.table-namespace-selection {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#config-button {
+    width: 120px;
+    height: 30px;
+    margin: auto;
+    position: absolute;
+    right: 14px;
+    margin-top: 10px;
+}
+
+.box-left {
+    width: 21%;
+    height: 100%;
+    border: 1px solid beige;
+}
+
+.box-right {
+    width: 79%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+.configs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#config-input {
+    overflow: hidden;
+    height: 2em;
+}

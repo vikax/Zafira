@@ -1,83 +1,74 @@
-import { json } from '@codemirror/lang-json';
-import { Compartment, EditorState } from '@codemirror/state';
-import { useEffect, useRef } from 'react';
-import { basicSetup } from 'codemirror';
-import { EditorView } from '@codemirror/view';
-import { javascript } from '@codemirror/lang-javascript';
+import './databaseclient.css'
 
 function DatabaseClient() {
-    const parentEditor = useRef(null)
-    let language = new Compartment
-    let tabSize = new Compartment
 
-    useEffect(() => {
-        if (parentEditor.current) {
-            console.log("codemirror")
-            const initalState = EditorState.create({
-                doc: "",
-                extensions: [basicSetup, json()],
-            })
-
-            const view = new EditorView({
-                parent: parentEditor.current,
-                state: initalState,
-                lineNumbers: false,
-            })
-
-            parentEditor.view = view
-
-            return () => {
-                view.destroy()
-            }
-        }
-    })
-
+    var configOptions = ['Hostname', 'Port', 'Username', 'Password', 'Authentication Database']
 
     return (
-        <>
-            <div id='editor' ref={parentEditor}></div>
-        </>
+        <div className="database-container">
+            <div className='database-box-parent'>
+                <div className="box-left">
+                    <span id='add-new-connection'>Add New Connection</span>
+                    <div>localhost:27017</div>
+                </div>
+                <div className='box-right'>
+                    <div className='connection-configs'>
+                        {
+                            configOptions.map((item) =>
+                                <div className="configs" key={item}>
+                                    <span className='config-item'>{item}</span>
+                                    <input type='text' size='30' id='config-input'></input>
+                                </div>
+                            )
+                        }
+                        <button id='config-button'>Connect</button>
+                    </div>
+                    <div className="table-namespace-selection">
+                        <div className="select-database">
+                            <span className='db-select-span'>Database:</span>
+                            <select className='select-schema'>
+                                {populateDatabases()}
+                            </select>
+                        </div>
+                        <div className="select-table">
+                            <span className='db-select-span'>Table:</span>
+                            <select className='select-schema'>
+                                {populateTables()}
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
     )
-
-    /*
-    const editor = useRef(null)
-    const { setContainer } = useCodeMirror({
-        container: editor.current,
-        value: "const val='some value'",
-        extensions: [basicSetup(), javascript(), dracula],
-        width: "50vw",
-        height: "60vh",
-        readOnly: false,
-        content: 'left',
-        color: 'blue'
-    })
-
-    useEffect(() => {
-        if (editor.current) {
-            setContainer(editor.current)
-        }
-    })
-
-    return (
-        <>
-            <div id='editor' ref={editor}></div>
-        </>
-    )
-        */
-
 }
 
-function changeToCodeEditor() {
-    console.log("codemirror")
-    var state = EditorState.create({
-        doc: "This is some line from code",
-        extensions: [basicSetup],
-    })
+function populateTables() {
+    var list = ['titles', 'events', 'programsssssssssssssssssssssssssssssssssss']
 
-    var view = new EditorView({
-        parent: document.getElementById('editor'),
-        state: state,
-    })
+    return (
+        list.map((item) =>
+            <option className='tbl-db-options' key={item}>{item}</option>
+        )
+    )
+}
+
+function populateDatabases() {
+
+    console.log('databases calling main ipc')
+    console.log(window)
+    var list = []
+    list = window.elec.getDatabases()
+    console.log('gettinglist')
+    console.log(list)
+
+    return (
+        list.map((item) =>
+            <option className='tbl-db-options' key={item}>{item}</option>
+        )
+    )
 }
 
 export default DatabaseClient

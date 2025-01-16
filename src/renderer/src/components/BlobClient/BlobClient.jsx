@@ -2,6 +2,7 @@ import { Editor } from "@monaco-editor/react"
 import './blobclient.css'
 import { autoCloseTags } from "@codemirror/lang-javascript";
 
+
 function BlobClient() {
     const options = {
         contextmenu: true,
@@ -27,10 +28,27 @@ function BlobClient() {
     };
 
 
-
+    /*
     return (
         <Editor height='80vh' theme="vs-dark" language="json" options={options}></Editor>
+    )*/
+
+    return (
+        <>
+            <button onClick={saySomething}>Say Hello</button>
+            <button onClick={openFileDialog}>File</button>
+        </>
     )
+}
+
+function saySomething() {
+    console.log(window)
+    window.elec.sayHello("Namaste brother")
+    //ipcRenderer.send('say-hello', "namaste")
+}
+
+async function openFileDialog() {
+    await window.elec.openFile()
 }
 
 export default BlobClient
